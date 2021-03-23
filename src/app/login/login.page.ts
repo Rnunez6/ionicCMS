@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
 import { User } from '../user.model';
@@ -13,14 +14,12 @@ export class LoginPage implements OnInit {
   user:User = new User();
   errorMessage: string;
 
-
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 
   response(response): void{
     if(response.success===false){
@@ -28,8 +27,9 @@ export class LoginPage implements OnInit {
     }
 
     if(response.success===true){
-      window.location.href='/#/users';
+      this.router.navigate(['/users']);
     }
+
   }
 
     public Login(): void{
