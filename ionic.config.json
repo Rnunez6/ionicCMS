@@ -1,0 +1,7 @@
+{
+  "name": "ionicUsers",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
