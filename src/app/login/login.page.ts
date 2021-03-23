@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from '../auth.service';
+import { User } from '../user.model';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -7,9 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  user:User = new User();
+  errorMessage: string;
+
+
+  constructor(
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
   }
+
+
+  response(response): void{
+    if(response.success===false){
+      this.errorMessage = 'Invalid Credentials';
+    }
+
+    if(response.success===true){
+      window.location.href='/#/users';
+    }
+  }
+
+    public Login(): void{
+    this.authService.login(this.user).subscribe(
+      (response:any) => {
+        this.response(response);
+      }
+    );
+    }
 
 }

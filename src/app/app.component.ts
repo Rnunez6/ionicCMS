@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -6,13 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'Login', url: '/login', icon: 'log-in' },
+    { title: 'Logout', url: '/logout', icon: 'log-out' },
+    { title: 'Register', url: '/register', icon: 'person-add' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  //public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+  constructor(
+    private StatusBar:StatusBar,
+    private SplashScreen:SplashScreen
+  ) {}
 }
