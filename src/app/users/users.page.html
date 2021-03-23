@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-item *ngIf="!users">
-    <ion-label text-center>
+    <ion-label ion-text-center>
       <ion-spinner></ion-spinner>
     </ion-label>
   </ion-item>
@@ -17,4 +17,10 @@
     </ion-item>
   </ion-list>
 
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button  color="secondary" [routerLink]="['/user-create']">
+      <ion-icon name="person-add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
 </ion-content>
